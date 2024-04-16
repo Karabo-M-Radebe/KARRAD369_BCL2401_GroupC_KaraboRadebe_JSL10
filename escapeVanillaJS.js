@@ -11,11 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.getElementById("solveRoom2").addEventListener("click", () => {
-        const jsConcepts = new Set(['closure', 'scope', 'hoisting']);
+        const jsConcepts = new Set(['closure', 'scope', 'hoisting', 'async']);
         // 🪲 Bug: What's mssing from JS concepts?
         const reactConcepts = new Set(['components', 'jsx', 'hooks', 'async']);
         // 🪲 Bug: Incorrect function call
-        const commonConcepts = findIntersection(jsConcepts, reactConcepts);
+        const commonConcepts = findIntersection(jsConcepts, reactConcepts); // changed the second [1] parameter name  
         document.getElementById("room2Result").textContent = `The code to unlock the door is: ${Array.from(commonConcepts).join(', ')}`;
     });
 
