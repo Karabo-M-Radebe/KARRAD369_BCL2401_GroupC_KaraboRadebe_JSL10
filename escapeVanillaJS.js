@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // 🪲 Bug: What's mssing from JS concepts?
         const reactConcepts = new Set(['components', 'jsx', 'hooks', 'async']);
         // 🪲 Bug: Incorrect function call
-        const commonConcepts = new Set(jsConcepts, reactConcepts);
+        const commonConcepts = new Set([...jsConcepts].filter((concept) => reactConcepts.has(concept))); // this new set function is more effficient than the previous function due to the arrow function
         document.getElementById("room2Result").textContent = `The code to unlock the door is: ${Array.from(commonConcepts).join(', ')}`;
     });
 
