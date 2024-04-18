@@ -21,17 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 🪲 Bug: Asynchronous function ?
     document.getElementById("solveRoom3").addEventListener("click", async() => {
-        fetch('directions.json') 
-            .then(response => response.json())
-            .then(directions => {navigateLabyrinth(directions) 
-            .then(message => {
+         
+            const response = await fetch('directions.json')
+            const directions = await response.json()
+            const message = await navigateLabyrinth(directions) 
+            
             // 🪲 Bug: Incorrect method
             document.getElementById("room3Result").textContent = message; // changed from innerHTML to textContent
-            });
-        });
     });
-});
-
+        });
+        
 function findMostRecentBook(books) {
     // 🪲 Bug: Logic error
     return books.reduce((mostRecent, book) => new Date(book.published) < new Date(mostRecent.published) ? book : mostRecent);
