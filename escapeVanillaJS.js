@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // 🪲 Bug: What's mssing from JS concepts?
         const reactConcepts = new Set(['components', 'jsx', 'hooks', 'async']);
         // 🪲 Bug: Incorrect function call
-        const commonConcepts = new Set([...jsConcepts].filter((concept) => reactConcepts.has(concept))); // this new set function is more effficient than the previous function due to the arrow function
+        const commonConcepts = findIntersection(jsConcepts, jsConcepts)
         document.getElementById("room2Result").textContent = `The code to unlock the door is: ${Array.from(commonConcepts).join(', ')}`;
     });
 
@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("solveRoom3").addEventListener("click", () => {
         fetch('directions.json') 
             .then(response => response.json())
-            .then(directions => {const message = await navigateLabyrinth(directions);
+            .then(directions => {const message = await navigateLabyrinth(directions); // .then() is an alternative to the await keyword
             // 🪲 Bug: Incorrect method
-            document.getElementById("room3Result").textContent = message;
+            document.getElementById("room3Result").textContent = message; // changed from innerHTML to textContent
             });
         });
     });
