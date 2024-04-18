@@ -23,12 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("solveRoom3").addEventListener("click", () => {
         fetch('directions.json') 
             .then(response => response.json())
-            .then(directions => {const message = await navigateLabyrinth(directions); // .then() is an alternative to the await keyword
+            .then(directions => {navigateLabyrinth(directions) 
+            .then(message => {
             // 🪲 Bug: Incorrect method
             document.getElementById("room3Result").textContent = message; // changed from innerHTML to textContent
             });
         });
     });
+});
 
 function findMostRecentBook(books) {
     // 🪲 Bug: Logic error
