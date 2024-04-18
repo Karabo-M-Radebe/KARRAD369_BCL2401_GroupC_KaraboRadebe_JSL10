@@ -23,14 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("solveRoom3").addEventListener("click", () => {
         fetch('directions.json') 
             .then(response => response.json())
-            .then(directions => { navigateLabyrinth(directions)
-            .then(message => {
+            .then(directions => {const message = await navigateLabyrinth(directions);
             // 🪲 Bug: Incorrect method
-            document.getElementById("room3Result").innerHTML = message;
+            document.getElementById("room3Result").textContent = message;
             });
         });
     });
-});
 
 function findMostRecentBook(books) {
     // 🪲 Bug: Logic error
