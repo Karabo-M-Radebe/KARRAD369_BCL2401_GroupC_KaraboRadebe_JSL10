@@ -30,10 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("room3Result").textContent = message; // changed from innerHTML to textContent
     });
         });
-        
+
 function findMostRecentBook(books) {
     // 🪲 Bug: Logic error
-    return books.reduce((mostRecent, book) => new Date(book.published) < new Date(mostRecent.published) ? book : mostRecent);
+    return books.reduce((mostRecent, book) => new Date(book.published) > new Date(mostRecent.published) ? book : mostRecent);
 }
 
 function findIntersection(setA, setB) {
